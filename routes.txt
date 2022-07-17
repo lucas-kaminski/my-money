@@ -1,0 +1,3 @@
+/auth/login
+/dashboard
+/static/<path:filename>

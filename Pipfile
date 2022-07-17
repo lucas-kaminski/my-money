@@ -1,0 +1,18 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+flask = "*"
+mysql-connector-python = "*"
+python-dotenv = "*"
+
+[dev-packages]
+
+[scripts]
+dev="python src/main.py"
+recreate-database="python src/scripts/database.py --delete --create --insert"
+
+[requires]
+python_version = "3.10"

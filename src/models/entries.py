@@ -1,6 +1,6 @@
 from datetime import datetime
 
-class Entrie:
+class Entry:
   id: int
   id_bank: int
   id_category: int

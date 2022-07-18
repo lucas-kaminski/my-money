@@ -1,9 +1,0 @@
-CREATE TABLE IF NOT EXISTS `users` (
-  `ID` int NOT NULL AUTO_INCREMENT,
-  `USERNAME` varchar(255) NOT NULL,
-  `PASSWORD` varchar(255) NOT NULL,
-  `EMAIL` varchar(255) NOT NULL,
-  `CREATED_AT` datetime NOT NULL,
-  `UPDATED_AT` datetime NOT NULL,
-  PRIMARY KEY (`ID`)
-);

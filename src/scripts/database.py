@@ -14,11 +14,13 @@ if len(sys.argv) > 1:
     connection = Connector()
     with open('./src/database/sql/drop.sql', 'r') as f:
       connection.cursor.execute(f.read())
+      print('Database recreated')
 
   if '--create' in sys.argv:
     connection = Connector()
-    with open('./src/database/sql/tables/users.sql') as f:
-      connection.cursor.execute(f.read())
+    with open('./src/database/sql/tables.sql') as f:
+      for i in connection.cursor.execute(f.read(), multi=True):
+        pass
       if '--insert' in sys.argv:
         INSERT_USERS = True
 
@@ -26,6 +28,7 @@ if len(sys.argv) > 1:
     connection = Connector()
     connection.cursor.execute('INSERT INTO users (ID, USERNAME, PASSWORD, EMAIL, CREATED_AT, UPDATED_AT) VALUES (1, "admin", "admin", "admin@admin.com", NOW(), NOW())')
     connection.commit()
+    print('Users inserted')
 
 else:
   print('Usage: python3 seed.py [--delete|--create]')

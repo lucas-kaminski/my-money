@@ -1,0 +1,33 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>my-money</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+  <script src="{{ url_for('static', filename='js/base.js') }}"></script>
+  {% block static_files %}
+  {% endblock %}
+</head>
+
+<body>
+  <div id="header">
+    <header>
+      <span onclick="openNav()">&#9776;</span>
+    </header>
+  </div>
+  <aside id="mySidenav" class="sidenav">
+    <nav>
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="#">Login</a>
+      <a href="#">Registre-se</a>
+    </nav>
+  </aside>
+  <div id="main">
+    <main>
+      {% block main %}
+      {% endblock %}
+    </main>
+  </div>
+</body>
+
+</html>

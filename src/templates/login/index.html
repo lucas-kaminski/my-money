@@ -1,15 +1,20 @@
-<html>
-  <body>
-    <h1>Login</h1>
-    <form action="" method="post">
-      <label for="email">e-mail:</label>
-      <input type="text" name="email" id="email" />
-      <label for="password">Password:</label>
-      <input type="password" name="password" id="password" />
-      <input type="submit" value="Login" />
-    </form>
-    {% if error %}
-      <p>{{ error }}</p>
-    {% endif %}
-  </body>
-</html>
+{% extends "base.html" %}
+{% block static_files %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+{% endblock %}
+
+{% block main %}
+<div class="center">
+  <h1>my-money</h1>
+  <section>
+    <input #username type="text" name="username" placeholder="E-mail">
+    <br />
+    <input #password type="password" name="password" placeholder="Password">
+    <br />
+    <button type="button" role="button">Login</button>
+  </section>
+  {% if error %}
+  <p>{{ error }}</p>
+  {% endif %}
+</div>
+{% endblock %}

@@ -1,11 +1,10 @@
-from datetime import date
-
+from datetime import datetime
 
 class Entrie:
   id: int
   id_bank: int
   id_category: int
-  date: date
+  date: datetime
   value: float
   observation: str
   created_at: datetime

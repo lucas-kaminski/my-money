@@ -6,13 +6,13 @@
 {% block main %}
 <div class="center">
   <h1>my-money</h1>
-  <section>
-    <input #username type="text" name="username" placeholder="E-mail">
+  <form action="{{ url_for('login') }}" method="post">
+    <input type="text" name="email" id='email' placeholder="E-mail">
     <br />
-    <input #password type="password" name="password" placeholder="Password">
+    <input type="password" name="password" id='password' placeholder="Password">
     <br />
-    <button type="button" role="button">Login</button>
-  </section>
+    <button type="submit" role="button" >Login</button>
+  </form>
   {% if error %}
   <p>{{ error }}</p>
   {% endif %}

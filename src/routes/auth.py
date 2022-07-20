@@ -1,5 +1,8 @@
+from datetime import datetime, timedelta
+import os
 from server.instance import server
-from flask import render_template, redirect, url_for, request
+from flask import render_template, redirect, url_for, request, make_response
+import jwt
 
 from models.DAO.users import getByEmail
 
@@ -18,6 +21,9 @@ def login():
         if not user.isValidPassword(password):
             return render_template('/login/index.html', error='Invalid password')
         else:
-            return redirect(url_for('dashboard'))
+            response = make_response(redirect(url_for('dashboard')))
+            token = jwt.encode({'user_id': user.id, "exp": datetime.now() + timedelta(days=30)}, os.environ['JWT_SECRET'], algorithm='HS256')
+            response.set_cookie('token', token)
+            return response
     else:
         return render_template('/login/index.html')

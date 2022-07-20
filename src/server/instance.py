@@ -1,4 +1,3 @@
-from tempfile import tempdir
 from flask import Flask
 
 class Server:

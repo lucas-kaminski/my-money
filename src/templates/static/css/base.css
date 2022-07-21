@@ -1,6 +1,6 @@
 body {
-  transition: margin-left 0.5s;
-  padding: 20px;
+  margin: 0;
+  padding: 0;
 }
 
 /* Start right menu */
@@ -52,7 +52,28 @@ body {
 }
 /* End right menu */
 
+#header {
+  background-color: rgb(156, 156, 156);
+  height: 100px;
+}
+
 /* Start utils */
+.vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.horizontal-center {
+  margin: 0;
+  position: absolute;
+  left: 50%;
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
 .center {
   margin: 0;
   position: absolute;
@@ -60,7 +81,6 @@ body {
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  text-align:center;
 }
 
 /* End utils */

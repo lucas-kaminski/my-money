@@ -21,9 +21,9 @@ def login():
         if not user.isValidPassword(password):
             return render_template('/login/index.html', error='Invalid password')
         else:
-            response = make_response(redirect(url_for('dashboard')))
-            token = jwt.encode({'user_id': user.id, "exp": datetime.now() + timedelta(days=30)}, os.environ['JWT_SECRET'], algorithm='HS256')
-            response.set_cookie('token', token)
-            return response
+          response = make_response(redirect(url_for('dashboard')))
+          token = jwt.encode({'user_id': user.id, "exp": datetime.now() + timedelta(days=30)}, os.environ['JWT_SECRET'], algorithm='HS256')
+          response.set_cookie('token', token)
+          return response
     else:
         return render_template('/login/index.html')

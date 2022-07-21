@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block static_files %}
+{% endblock %}
+
+{% block main %}
+<div>
+  <div class="entries">
+    <table>
+      <thead>
+        <tr>
+          <td>Data</td>
+          <td>Banco</td>
+          <td>Valor</td>
+          <td>Categoria</td>
+          <td>Observação</td>
+        </tr>
+      </thead>
+      <tbody>
+        {% for entry in entries  %}
+        <tr>
+          <td>{{ entry.date.strftime("%d/%m/%Y") }}</td>
+          <td>{{ entry.bank_name }}</td>
+          <td>{{ entry.value }}</td>
+          <td>{{ entry.category_name }}</td>
+          <td>{{ entry.observation }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

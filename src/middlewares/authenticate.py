@@ -17,7 +17,7 @@ def authentication():
             user = getByID(data.get('user_id'))
             if not user:
                 raise Exception('User not found')
-            return func(user, *args, **kwargs)
+            return func(user=user, *args, **kwargs)
           except jwt.ExpiredSignatureError:
               return redirect(url_for('login', error='Session expired'))
           except Exception as e:

@@ -8,7 +8,7 @@ def authentication():
   def wrapper(func):
       @wraps(func)
       def middleware(*args, **kwargs):
-          token = request.cookies['token']
+          token = request.cookies.get('token')
           if not token:
               return redirect(url_for('login', error='Not logged in'))
 
@@ -17,6 +17,8 @@ def authentication():
             user = getByID(data.get('user_id'))
             if not user:
                 raise Exception('User not found')
+            else:
+                user.setIsAuthenticated(True)
             return func(user=user, *args, **kwargs)
           except jwt.ExpiredSignatureError:
               return redirect(url_for('login', error='Session expired'))

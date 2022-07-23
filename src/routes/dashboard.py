@@ -9,5 +9,5 @@ app = server.app
 def dashboard(user):
     entries = getAllEntriesOfUser(user.id)
     print(entries[0].__dict__)
-    return render_template('/dashboard/index.html', entries=entries)
+    return render_template('/dashboard/index.html', user=user)
 

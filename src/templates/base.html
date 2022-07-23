@@ -17,11 +17,18 @@
       <span onclick="openNav()">&#9776;</span>
     </header>
   </div>
-  <aside id="mySidenav" class="sidenav">
+  <aside id="mynavbar" class="navbar">
     <nav>
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-      <a href="#">Login</a>
-      <a href="#">Registre-se</a>
+      {% if user and user.isAuthenticated() %}
+      <a href="#">Lançamentos</a>
+      <a href="#">Bancos</a>
+      <a href="{{ url_for('dashboard') }}"> Dashboard</a>
+      <a href="#">API</a>
+      <a href="#">Sair</a>
+      {% else %}
+      <a href="{{ url_for('login') }}"> Login </a>
+      <a href=""> Registrar-se </a>
+      {% endif %}
     </nav>
   </aside>
   <div id="main">

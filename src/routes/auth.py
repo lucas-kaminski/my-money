@@ -23,7 +23,13 @@ def login():
         else:
           response = make_response(redirect(url_for('dashboard')))
           token = jwt.encode({'user_id': user.id, "exp": datetime.now() + timedelta(days=30)}, os.environ['JWT_SECRET'], algorithm='HS256')
-          response.set_cookie('token', token)
+          response.set_cookie('token', token, samesite='Lax', secure=True, httponly=True)
           return response
     else:
         return render_template('/login/index.html')
+
+@app.route('/auth/logout')
+def logout():
+    response = make_response(redirect(url_for('login')))
+    response.delete_cookie('token')
+    return response

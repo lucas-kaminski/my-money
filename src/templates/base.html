@@ -20,15 +20,14 @@
   <aside id="mynavbar" class="navbar">
     <nav>
       {% if user and user.isAuthenticated() %}
-      <a href="#">Lançamentos</a>
-      <a href="#">Bancos</a>
+      <a href="{{ url_for('logout') }}">Sair</a>
+      <a href="{{ url_for('entries') }}">Lançamentos</a>
+      <a href="{{ url_for('banks') }}">Bancos</a>
       <a href="{{ url_for('dashboard') }}"> Dashboard</a>
-      <a href="#">API</a>
-      <a href="#">Sair</a>
       {% else %}
-      <a href="{{ url_for('login') }}"> Login </a>
-      <a href=""> Registrar-se </a>
+      <a href="{{ url_for('login') }}">Login</a>
       {% endif %}
+      <a href="{{ url_for('api') }}">API</a>
     </nav>
   </aside>
   <div id="main">

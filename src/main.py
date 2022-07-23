@@ -1,6 +1,6 @@
 from server.instance import server
 from dotenv import load_dotenv
-from routes import dashboard, auth
+from routes import dashboard, auth, api
 
 if __name__ == '__main__':
     load_dotenv()
@@ -9,7 +9,14 @@ if __name__ == '__main__':
       f.write('')
 
     with open('routes.txt' , 'a') as f:
-      for route in server.app.url_map.iter_rules():
-        f.write(str(route) + '\n')
+      for r in server.app.url_map._rules:
+            f.write(
+                str(r.rule)
+                + " - "
+                + str(r.endpoint)
+                + " - "
+                + r.methods.__str__()
+                + "\n"
+            )
 
     server.run()

@@ -1,3 +1,7 @@
-/auth/login
-/dashboard
-/static/<path:filename>
+/static/<path:filename> - static - {'OPTIONS', 'GET', 'HEAD'}
+/dashboard - dashboard - {'OPTIONS', 'GET', 'HEAD'}
+/dashboard/banks - banks - {'OPTIONS', 'GET', 'HEAD'}
+/dashboard/entries - entries - {'OPTIONS', 'GET', 'HEAD'}
+/auth/login - login - {'OPTIONS', 'GET', 'HEAD', 'POST'}
+/auth/logout - logout - {'OPTIONS', 'GET', 'HEAD'}
+/api - api - {'OPTIONS', 'GET', 'HEAD'}

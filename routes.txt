@@ -1,7 +1,7 @@
-/static/<path:filename> - static - {'OPTIONS', 'GET', 'HEAD'}
-/dashboard - dashboard - {'OPTIONS', 'GET', 'HEAD'}
-/dashboard/banks - banks - {'OPTIONS', 'GET', 'HEAD'}
-/dashboard/entries - entries - {'OPTIONS', 'GET', 'HEAD'}
-/auth/login - login - {'OPTIONS', 'GET', 'HEAD', 'POST'}
-/auth/logout - logout - {'OPTIONS', 'GET', 'HEAD'}
-/api - api - {'OPTIONS', 'GET', 'HEAD'}
+/static/<path:filename> - static - {'GET', 'OPTIONS', 'HEAD'}
+/dashboard - dashboard - {'GET', 'OPTIONS', 'HEAD'}
+/dashboard/banks - banks - {'GET', 'OPTIONS', 'HEAD'}
+/dashboard/entries - entries - {'GET', 'OPTIONS', 'HEAD'}
+/auth/login - login - {'GET', 'OPTIONS', 'POST', 'HEAD'}
+/auth/logout - logout - {'GET', 'OPTIONS', 'HEAD'}
+/api - api - {'GET', 'OPTIONS', 'HEAD'}

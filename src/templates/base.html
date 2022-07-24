@@ -2,40 +2,36 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <title>my-money</title>
-  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
-  <script src="{{ url_for('static', filename='js/base.js') }}"></script>
-  {% block static_files %}
-  {% endblock %}
+    <meta charset="utf-8" />
+    <title>my-money</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}" />
+    <script src="{{ url_for('static', filename='js/base.js') }}"></script>
+    {% block static_files %} {% endblock %}
 </head>
 
 <body>
-  <div id="header">
-    <header>
-      <span onclick="openNav()">&#9776;</span>
-    </header>
-  </div>
-  <aside id="mynavbar" class="navbar">
-    <nav>
-      {% if user and user.isAuthenticated() %}
-      <a href="{{ url_for('logout') }}">Sair</a>
-      <a href="{{ url_for('entries') }}">Lançamentos</a>
-      <a href="{{ url_for('banks') }}">Bancos</a>
-      <a href="{{ url_for('dashboard') }}"> Dashboard</a>
-      {% else %}
-      <a href="{{ url_for('login') }}">Login</a>
-      {% endif %}
-      <a href="{{ url_for('api') }}">API</a>
-    </nav>
-  </aside>
-  <div id="main">
-    <main>
-      {% block main %}
-      {% endblock %}
-    </main>
-  </div>
+    <div id="header">
+        <header>
+            <span onclick="openNav()">&#9776;</span>
+        </header>
+    </div>
+    <aside id="mynavbar" class="navbar">
+        <nav>
+            {% if user and user.isAuthenticated() %}
+            <a href="{{ url_for('logout') }}">Sair</a>
+            <a href="{{ url_for('entries') }}">Lançamentos</a>
+            <a href="{{ url_for('banks') }}">Bancos</a>
+            <a href="{{ url_for('dashboard') }}"> Dashboard</a>
+            {% else %}
+            <a href="{{ url_for('login') }}">Login</a>
+            {% endif %}
+            <a href="{{ url_for('api') }}">API</a>
+        </nav>
+    </aside>
+    <div id="main">
+        <main>{% block main %} {% endblock %}</main>
+    </div>
 </body>
 
 </html>

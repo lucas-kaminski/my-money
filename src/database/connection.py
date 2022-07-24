@@ -2,13 +2,14 @@ import os
 import mysql.connector
 
 config = {
-    'user': os.environ.get('MYSQL_USER'),
-    'password': os.environ.get('MYSQL_PASSWORD'),
-    'host': os.environ.get('MYSQL_HOST'),
-    'port': os.environ.get('MYSQL_PORT'),
-    'database': os.environ.get('MYSQL_DATABASE'),
-    'raise_on_warnings': True,
+    "user": os.environ.get("MYSQL_USER"),
+    "password": os.environ.get("MYSQL_PASSWORD"),
+    "host": os.environ.get("MYSQL_HOST"),
+    "port": os.environ.get("MYSQL_PORT"),
+    "database": os.environ.get("MYSQL_DATABASE"),
+    "raise_on_warnings": True,
 }
+
 
 class Connector:
     def __init__(self):

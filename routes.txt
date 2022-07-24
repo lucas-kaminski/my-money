@@ -1,7 +1,0 @@
-/static/<path:filename> - static - {'GET', 'OPTIONS', 'HEAD'}
-/dashboard - dashboard - {'GET', 'OPTIONS', 'HEAD'}
-/dashboard/banks - banks - {'GET', 'OPTIONS', 'HEAD'}
-/dashboard/entries - entries - {'GET', 'OPTIONS', 'HEAD'}
-/auth/login - login - {'GET', 'OPTIONS', 'POST', 'HEAD'}
-/auth/logout - logout - {'GET', 'OPTIONS', 'HEAD'}
-/api - api - {'GET', 'OPTIONS', 'HEAD'}

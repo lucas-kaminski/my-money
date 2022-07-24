@@ -1,6 +1,7 @@
 from datetime import date
 import os
 from dotenv import load_dotenv
+
 load_dotenv()
 
 SQL_INSERT_DATA = {
@@ -72,7 +73,12 @@ SQL_INSERT_DATA = {
     "users": {
         "sql": "INSERT INTO users (ID, USERNAME, EMAIL, PASSWORD) VALUES (%s, %s, %s, %s)",
         "values": [
-            (1, os.environ.get("DEVELOPMENT_USERNAME"), os.environ.get("DEVELOPMENT_EMAIL"), os.environ.get("DEVELOPMENT_PASSWORD")),
+            (
+                1,
+                os.environ.get("DEVELOPMENT_USERNAME"),
+                os.environ.get("DEVELOPMENT_EMAIL"),
+                os.environ.get("DEVELOPMENT_PASSWORD"),
+            ),
         ],
     },
     "banks": {
@@ -99,5 +105,5 @@ SQL_INSERT_DATA = {
             (4, 1, 8, 26, date.today(), 150, "Gasolina"),
             (5, 2, 2, None, date.today(), 500.00, "Investimento em ações"),
         ],
-    }
+    },
 }

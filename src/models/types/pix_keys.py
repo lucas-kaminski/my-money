@@ -1,7 +1,7 @@
 class PixKey:
-  id: int
-  type: str
+    id: int
+    type: str
 
-  def __init__(self, ID, TYPE):
-    self.id = ID
-    self.type = TYPE
+    def __init__(self, ID, TYPE):
+        self.id = ID
+        self.type = TYPE

@@ -1,4 +1,5 @@
 from middlewares.authenticate import authentication
+from models.DAO.banks import getAllBanksOfUser
 from server.instance import server
 from flask import render_template
 from models.DAO.entries import getAllEntriesOfUser
@@ -15,7 +16,9 @@ def dashboard(**context):
 @app.route("/dashboard/banks")
 @authentication()
 def banks(**context):
-    return render_template("/dashboard/banks/index.html", **context)
+    user = context.get("user")
+    banks = getAllBanksOfUser(user.id)
+    return render_template("/dashboard/banks/index.html", banks=banks, **context)
 
 
 @app.route("/dashboard/entries")
@@ -23,6 +26,5 @@ def banks(**context):
 def entries(**context):
     user = context.get("user")
     entries = getAllEntriesOfUser(user.id)
-    context = {"entries": entries, **context}
-    print(context)
-    return render_template("/dashboard/entries/index.html", **context)
+
+    return render_template("/dashboard/entries/index.html", entries=entries, **context)

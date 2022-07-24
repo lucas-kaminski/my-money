@@ -1,8 +1,29 @@
-{% extends "base.html" %}
-{% block static_files %}
-{% endblock %}
+{% extends "dashboard/index.html" %}
+{% set title = "Bancos" %}
 
-{% block main %}
-<div>
+{% block dashboard %}
+<div id="filters">
+
+</div>
+<div id="list">
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for bank in banks %}
+            <tr>
+                <td>{{ bank.name }}</td>
+                <td>
+                    <a>Editar</a>
+                    <a>Excluir</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </div>
 {% endblock %}
